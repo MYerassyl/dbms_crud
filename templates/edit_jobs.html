@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+ 
+{% block content %}
+    <form action="/update/{{jobs.job_id}}" method="post"> 
+        <div class="mb-3">
+            <label>Job ID</label>
+            <input type = "text" name = "job_id" placeholder = "job_id" class="form-control" value="{{jobs.job_id}}"/>
+        </div>
+        <div class="mb-3">
+            <label>Member ID</label>
+            <input type = "text" name = "member_user_id" placeholder = "member_user_id" class="form-control" value="{{jobs.member_user_id}}"/>
+        </div>
+        <div class="mb-3">
+            <label>Required Caregiving Type</label>
+            <input type = "text" name = "required_caregiving_type" placeholder = "required_caregiving_type" class="form-control" value="{{jobs.required_caregiving_type}}"/>
+        </div> 
+        <div class="mb-3">
+            <label>Other Requirements</label>
+            <input type = "text" name = "other_requirements" placeholder = "other_requirements" class="form-control" value="{{jobs.other_requirements}}"/>
+        </div> 
+        <div class="mb-3">
+            <label>Date Posted</label>
+            <input type = "text" name = "date_posted" placeholder = "date_posted" class="form-control" value="{{jobs.date_posted}}"/>
+        </div> 
+     
+        <input type = "submit" value = "Update" class="btn btn-primary mb-3"/>  
+     </form> 
+{% endblock content %}

@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<form action = "/add/application" method = "post"> 
+    <div class="mb-3">
+        <label>Caregiver ID</label>
+        <input type = "text" name = "caregiver_user_id" placeholder = "caregiver_user_id" class="form-control" />
+    </div>
+    <div class="mb-3">
+        <label>Job ID</label>
+        <input type = "text" name = "job_id" placeholder = "job_id" class="form-control" />
+    </div> 
+    <div class="mb-3">
+        <label>Date Applied</label>
+        <input type = "text" name = "date_applied" placeholder = "date_applied" class="form-control" />
+    </div> 
+    <input type = "submit" value = "Submit" class="btn btn-primary mb-3"/>  
+ </form> 
+{% endblock content %}

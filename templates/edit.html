@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+ 
+{% block content %}
+    <form action="/update/{{user.user_id}}" method="post"> 
+        <div class="mb-3">
+            <label>Name</label>
+            <input type = "text" name = "given_name" placeholder = "Name" class="form-control" value="{{user.given_name}}"/>
+        </div> 
+        <div class="mb-3">
+            <label>Surname</label>
+            <input type = "text" name = "surname" placeholder = "Surname" class="form-control" value="{{user.surname}}"/>
+        </div> 
+        <div class="mb-3">
+            <label>Email</label>
+            <input type = "text" name = "email" placeholder = "Email" class="form-control" value="{{user.email}}"/>
+        </div> 
+        <div class="mb-3">
+            <label>Phone Number</label>
+            <input type = "text" name = "phone_number" placeholder = "Phone Number" class="form-control" value="{{user.phone_number}}"/>
+        </div> 
+        <div class="mb-3">
+            <label>Profile Description</label>
+            <input type = "text" name = "profile_description" placeholder = "Profile Description" class="form-control" value="{{user.profile_description}}"/>
+        </div> 
+     
+        <input type = "submit" value = "Update" class="btn btn-primary mb-3"/>  
+     </form> 
+{% endblock content %}

@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<form action = "/add/job" method = "post"> 
+    <div class="mb-3">
+        <label>Job ID</label>
+        <input type = "text" name = "job_id" placeholder = "job_id" class="form-control" />
+    </div>
+    <div class="mb-3">
+        <label>Member ID</label>
+        <input type = "text" name = "member_user_id" placeholder = "member_user_id" class="form-control" />
+    </div>
+    <div class="mb-3">
+        <label>Required Caregiving Type</label>
+        <input type = "text" name = "required_caregiving_type" placeholder = "required_caregiving_type" class="form-control" />
+    </div> 
+    <div class="mb-3">
+        <label>Other Requirements</label>
+        <input type = "text" name = "other_requirements" placeholder = "other_requirements" class="form-control" />
+    </div> 
+    <input type = "submit" value = "Submit" class="btn btn-primary mb-3"/>  
+ </form> 
+{% endblock content %}

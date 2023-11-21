@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="row">
+	<div class="col-12">
+		<a href="/" class="btn btn-primary">Home</a>
+		<a href="/jobs" class="btn btn-primary">View Jobs</a>
+        <a href="appointment/" class="btn btn-primary">Appointments</a>
+        <a href="/addnew/application" class="btn btn-primary">Apply to the Job</a>
+		<br><br>
+		<table class="table table-bordered table-striped">
+			<thead>
+				<tr>
+					<th>User ID</th>
+					<th>Name</th>
+					<th>Surname</th>
+					<th>Email</th>
+                    <th>Phone Number</th>
+					<th>City</th>
+					<th>Description</th>
+					<th>Photo</th>
+					<th>Gender</th>
+					<th>Caregiving Type</th>
+					<th width="200"></th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for rs in caregivers %}
+					<tr>
+						<td>{{ rs.caregiver_user_id }}</td>
+						<td>{{ rs.user.given_name }}</td>
+						<td>{{ rs.user.surname }}</td>
+						<td>{{ rs.user.email }}</td>
+						<td>{{ rs.user.phone_number }}</td>
+						<td>{{ rs.user.city }}</td>
+						<td>{{ rs.user.profile_description }}</td>
+						<td>{{ rs.photo }}</td>
+						<td>{{ rs.gender }}</td>
+						<td>{{ rs.caregiving_type }}</td>
+					</tr>
+				{% endfor %}	
+			</tbody>
+		</table>
+	</div>
+</div>
+
+{% endblock content %}

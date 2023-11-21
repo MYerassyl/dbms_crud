@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<form action = "/add/caregiver" method = "post"> 
+    <div class="mb-3">
+        <label>Name</label>
+        <input type = "text" name = "given_name" placeholder = "Name" class="form-control" />
+    </div> 
+    <div class="mb-3">
+        <label>Surname</label>
+        <input type = "text" name = "surname" placeholder = "Surname" class="form-control" />
+    </div> 
+    <div class="mb-3">
+        <label>Email</label>
+        <input type = "text" name = "email" placeholder = "Email" class="form-control" />
+    </div> 
+    <div class="mb-3">
+        <label>Phone Number</label>
+        <input type = "text" name = "phone_number" placeholder = "Phone Number" class="form-control" />
+    </div> 
+    <div class="mb-3">
+        <label>Profile Description</label>
+        <input type = "text" name = "profile_description" placeholder = "Profile Description" class="form-control" />
+    </div> 
+    <div class="mb-3">
+        <label>Password</label>
+        <input type = "text" name = "password" placeholder = "password" class="form-control" />
+    </div> 
+    <div class="mb-3">
+        <label>Photo</label>
+        <input type = "text" name = "photo" placeholder = "photo" class="form-control" />
+    </div> 
+    <div class="mb-3">
+        <label>Gender</label>
+        <input type = "text" name = "gender" placeholder = "gender" class="form-control" />
+    </div> 
+    <div class="mb-3">
+        <label>Caregiving Type</label>
+        <input type = "text" name = "caregiving_type" placeholder = "caregiving_type" class="form-control" />
+    </div> 
+
+    <input type = "submit" value = "Submit" class="btn btn-primary mb-3"/>  
+ </form> 
+ 
+{% endblock content %}

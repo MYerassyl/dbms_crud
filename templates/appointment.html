@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="row">
+	<div class="col-12">
+		<a href="/" class="btn btn-primary">Home</a>
+		<a href="/addnew/appointment" class="btn btn-primary">Add Appointment</a>
+		<br><br>
+		<table class="table table-bordered table-striped">
+			<thead>
+				<tr>
+					<th>Appointment ID</th>
+					<th>Member ID</th>
+					<th>Caregiver ID</th>
+					<th>Appointment date</th>
+					<th>Appointment time</th>
+                    <th>Work Hours</th>
+					<th>Status</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for rs in appointments %}
+					<tr>
+						<td>{{ rs.appointment_id }}</td>
+						<td>{{ rs.member_user_id }}</td>
+						<td>{{ rs.caregiver_user_id }}</td>
+						<td>{{ rs.appointment_date }}</td>
+						<td>{{ rs.appointment_time }}</td>
+						<td>{{ rs.work_hours }}</td>
+						<td>{{ rs.status }}</td>
+						<td>
+						</td>
+					</tr>
+				{% endfor %}	
+			</tbody>
+		</table>
+	</div>
+</div>
+
+{% endblock content %}

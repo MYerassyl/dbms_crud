@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="row">
+	<div class="col-12">
+		<a href="/" class="btn btn-primary">Home</a>
+		<a href="/jobs" class="btn btn-primary">View Jobs</a>
+        <a href="appointment/" class="btn btn-primary">Appointments</a>
+        <a href="addnew/address" class="btn btn-primary">Add Address</a>
+        <a href="addnew/job" class="btn btn-primary">Add Job</a>
+		<br><br>
+		<table class="table table-bordered table-striped">
+			<thead>
+				<tr>
+					<th>User ID</th>
+					<th>Name</th>
+					<th>Surname</th>
+					<th>Email</th>
+                    <th>Phone Number</th>
+					<th>City</th>
+					<th>Description</th>
+					<th>House Rules</th>
+					<th width="200">Action</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for rs in members %}
+					<tr>
+						<td>{{ rs.member_user_id }}</td>
+						<td>{{ rs.user.given_name }}</td>
+						<td>{{ rs.user.surname }}</td>
+						<td>{{ rs.user.email }}</td>
+						<td>{{ rs.user.phone_number }}</td>
+						<td>{{ rs.user.city }}</td>
+						<td>{{ rs.user.profile_description }}</td>
+						<td>{{ rs.house_rules }}</td>
+						<td>
+							<a href="address/{{ rs.member_user_id }}" class="btn btn-success">See Address</a>  
+						</td>
+					</tr>
+				{% endfor %}	
+			</tbody>
+		</table>
+	</div>
+</div>
+
+{% endblock content %}

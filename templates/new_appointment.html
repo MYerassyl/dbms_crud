@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<form action = "/add/appointment" method = "post"> 
+    <div class="mb-3">
+        <label>ID</label>
+        <input type = "text" name = "appointment_id" placeholder = "appointment_id" class="form-control" />
+    </div>
+    <div class="mb-3">
+        <label>Member ID</label>
+        <input type = "text" name = "member_user_id" placeholder = "member_user_id" class="form-control" />
+    </div> 
+    <div class="mb-3">
+        <label>Caregiver ID</label>
+        <input type = "text" name = "caregiver_user_id" placeholder = "caregiver_user_id" class="form-control" />
+    </div> 
+    <div class="mb-3">
+        <label>Appointment Date</label>
+        <input type = "text" name = "appointment_date" placeholder = "appointment_date" class="form-control" />
+    </div> 
+    <div class="mb-3">
+        <label>Appointment Time</label>
+        <input type = "text" name = "appointment_time" placeholder = "appointment_time" class="form-control" />
+    </div> 
+    <div class="mb-3">
+        <label>Status</label>
+        <input type = "text" name = "status" placeholder = "status" class="form-control" />
+    </div> 
+    <input type = "submit" value = "Submit" class="btn btn-primary mb-3"/>  
+ </form> 
+{% endblock content %}

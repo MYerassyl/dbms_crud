@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="row">
+	<div class="col-12">
+		<a href="addnew/member" class="btn btn-primary">Add New Member</a>
+		<a href="addnew/caregiver" class="btn btn-primary">Add New Caregiver</a>
+		<a href="members" class="btn btn-primary">Members</a>
+		<a href="caregivers" class="btn btn-primary">Caregivers</a>
+		<br><br>
+		<table class="table table-bordered table-striped">
+			<thead>
+				<tr>
+					<th>User ID</th>
+					<th>Name</th>
+					<th>Surname</th>
+					<th>Email</th>
+                    <th>Phone Number</th>
+					<th>City</th>
+					<th>Description</th>
+					<th width="200">Action</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for rs in users %}
+					<tr>
+						<td>{{ rs.user_id }}</td>
+						<td>{{ rs.given_name }}</td>
+						<td>{{ rs.surname }}</td>
+						<td>{{ rs.email }}</td>
+						<td>{{ rs.phone_number }}</td>
+						<td>{{ rs.city }}</td>
+						<td>{{ rs.profile_description }}</td>
+						<td>
+							<a href="edit/{{ rs.user_id }}" class="btn btn-success">Edit</a> | <a href="delete/{{ rs.user_id }}" class="btn btn-danger">Delete</a>  
+						</td>
+					</tr>
+				{% endfor %}	
+			</tbody>
+		</table>
+	</div>
+</div>
+
+{% endblock content %}

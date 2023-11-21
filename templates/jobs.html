@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="row">
+	<div class="col-12">
+		<a href="/" class="btn btn-primary">Home</a>
+		<br><br>
+		<table class="table table-bordered table-striped">
+			<thead>
+				<tr>
+					<th>Job ID</th>
+					<th>Member ID</th>
+					<th>Required Caregiving Type</th>
+					<th>Other Requirements</th>
+                    <th>Date Posted</th>
+					<th width="200">Action</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for rs in jobs %}
+					<tr>
+						<td>{{ rs.job_id }}</td>
+						<td>{{ rs.member_user_id }}</td>
+						<td>{{ rs.required_caregiving_type }}</td>
+						<td>{{ rs.other_requirements }}</td>
+						<td>{{ rs.date_posted }}</td>
+						<td>
+							<a href="editjob/{{ rs.job_id }}" class="btn btn-success">Edit</a> | <a href="deletejob/{{ rs.job_id }}" class="btn btn-danger">Delete</a>  
+						</td>
+					</tr>
+				{% endfor %}	
+			</tbody>
+		</table>
+	</div>
+</div>
+
+{% endblock content %}

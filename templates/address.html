@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="row">
+	<div class="col-12">
+		<a href="/" class="btn btn-primary">Home</a>
+		<a href="/members" class="btn btn-primary">Members</a>
+		<br><br>
+		<table class="table table-bordered table-striped">
+			<thead>
+				<tr>
+					<th>Town</th>
+					<th>Street</th>
+					<th>House Number</th>
+					<th width="200">Action</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for rs in address %}
+					<tr>
+						<td>{{ rs.town }}</td>
+						<td>{{ rs.street }}</td>
+						<td>{{ rs.house_number }}</td>
+						<td>
+							<a href="edit/{{ rs.member_user_id }}" class="btn btn-success">Edit</a> | <a href="address/{{ rs.member_user_id }}" class="btn btn-success">See Address</a>  
+						</td>
+					</tr>
+				{% endfor %}	
+			</tbody>
+		</table>
+	</div>
+</div>
+
+{% endblock content %}
