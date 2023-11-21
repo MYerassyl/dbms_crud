@@ -119,7 +119,9 @@ class Appointment(Base):
     member = relationship("Member", cascade="all, delete", back_populates='appointment', passive_deletes=True)
     caregiver = relationship("Caregiver", cascade="all, delete", back_populates='appointment', passive_deletes=True)
     
-DATABASE_URL = "postgresql://postgres:qwerty@localhost:5432/postgres"
+# DATABASE_URL = "postgresql://postgres:qwerty@localhost:5432/postgres"
+DATABASE_URL = "postgresql://db_caregiving_user:iqduB6Ej4u3l8mfEcpJUxSAN1t0iLKzW@dpg-cledn6fpc7cc73enr6jg-a.oregon-postgres.render.com/db_caregiving"
+
 engine = create_engine(DATABASE_URL, echo=True)
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 Base.metadata.create_all(bind=engine)
