@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+ 
+{% block content %}
+    <form action="/update/{{member.member_user_id}}" method="post"> 
+        <div class="mb-3">
+            <label>Member ID</label>
+            <input type = "text" name = "member_user_id" placeholder = "Name" class="form-control" value="{{user.given_name}}"/>
+        </div> 
+        <div class="mb-3">
+            <label>House Rules</label>
+            <input type = "text" name = "house_rules" placeholder = "Name" class="form-control" value="{{user.given_name}}"/>
+        </div> 
+        <input type = "submit" value = "Update" class="btn btn-primary mb-3"/>  
+     </form> 
+{% endblock content %}

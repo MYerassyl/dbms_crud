@@ -9,6 +9,7 @@ from fastapi.templating import Jinja2Templates
 from sqlalchemy.orm import Session
 from fastapi.responses import RedirectResponse
 from fastapi.staticfiles import StaticFiles
+import random
 
 Base = declarative_base()
 
@@ -170,20 +171,15 @@ async def addnew(request: Request):
 async def add(request: Request, given_name: str = Form(...), surname: str = Form(...), email: str = Form(...), 
               phone_number: str = Form(...), profile_description: str = Form(...), password: str = Form(...), 
               house_rules: str = Form(...), db: Session = Depends(get_db)):
-
-    users = User(given_name=given_name, surname=surname, email=email, phone_number=phone_number, profile_description=profile_description,
+    r = random.randint(30, 80)
+    users = User(user_id = r, given_name=given_name, surname=surname, email=email, phone_number=phone_number, profile_description=profile_description,
                  password=password)
-    db.add(users)
-    members = Member(member_user_id = users.user_id, house_rules = house_rules, user = users)
-    db.add(members)
-    db.commit()
     return RedirectResponse(url=app.url_path_for("home"), status_code=status.HTTP_303_SEE_OTHER)
 
 @app.post("/add/caregiver")
 async def add(request: Request, given_name: str = Form(...), surname: str = Form(...), email: str = Form(...), 
               phone_number: str = Form(...), profile_description: str = Form(...), password: str = Form(...), 
               photo: str = Form(...), gender: str = Form(...), caregiving_type: str = Form(...), db: Session = Depends(get_db)):
-    care
     if caregiving_type == "babysitter":
         care = C_enum.babysitter
     elif caregiving_type == "caregiver for elderly":
@@ -192,10 +188,7 @@ async def add(request: Request, given_name: str = Form(...), surname: str = Form
         care = C_enum.playmate_for_children
     users = User(given_name=given_name, surname=surname, email=email, phone_number=phone_number, profile_description=profile_description,
                  password=password)
-    db.add(users)
     caregivers = Caregiver(caregiver_user_id = users.user_id, photo = photo, gender=gender, caregiving_type = care, user = users)
-    db.add(caregivers)
-    db.commit()
     return RedirectResponse(url=app.url_path_for("home"), status_code=status.HTTP_303_SEE_OTHER)
 
 @app.get("/edit/{user_id}")
